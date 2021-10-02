@@ -1,14 +1,13 @@
 package com.mark55.automation;
-import java.awt.BorderLayout;
+
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 public class MainFrame extends JFrame {
 
+	private static final long serialVersionUID = 3185920316521070869L;
 	private Options contentPane;
 	
 	/**

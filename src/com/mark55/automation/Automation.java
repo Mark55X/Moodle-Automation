@@ -1,6 +1,7 @@
 package com.mark55.automation;
 
-import org.bouncycastle.operator.DefaultAlgorithmNameFinder;
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,8 +15,10 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Automation {
 	WebDriver driver;
+	String browser;
 	
 	public Automation(String browser) {
+		this.browser = browser;
 		switch(browser) {
 			case "firefox":WebDriverManager.firefoxdriver().setup();
 							driver =new FirefoxDriver();
@@ -56,7 +59,19 @@ public class Automation {
      	radio.click();
      	button.click();
      	
-     	//driver.quit();
+     	//Kill the browser driver
+     	String os = System.getProperty("os.name");
+		if(os.contains("Windows")) {
+			try {
+				ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", String.format("taskkill /IM $s /F",browser+"driver.exe"));
+				builder.start();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}else {
+			//UNIX LIKE OS
+			
+		}
 	}
 	
 }

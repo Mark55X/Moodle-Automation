@@ -1,14 +1,13 @@
 package com.mark55.automation;
 
 import javax.swing.JPanel;
+
 import javax.swing.JTextField;
 
 
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import javax.swing.ButtonGroup;
@@ -80,7 +79,8 @@ public class Options extends JPanel{
 					e1.printStackTrace();
 				}
 			}else {
-				//UNIX LIKE OS				
+				//UNIX LIKE OS
+				
 			}
 			Automation automation = new Automation(radioBrowser.getSelection().getActionCommand());
 			automation.activate(mail, pwd);
